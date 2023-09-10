@@ -59,7 +59,7 @@ while True:
 
 while True:
     validate_year = input(validate_message)
-    if validate_message != '':
+    if validate_year != '':
         break
 
 if (validate_year == 'Y') or (validate_year == 'y'):
@@ -73,7 +73,11 @@ if (validate_year == 'Y') or (validate_year == 'y'):
     finally:
         print(final_message)
 else:
-    year = input(input_year)
+    while True:
+        year = input(input_year)
+        if len(year) == 4:
+            break
+
     try:
         CreateFolder().create_month_paths(year=year, source=source)
         print(success_message)
